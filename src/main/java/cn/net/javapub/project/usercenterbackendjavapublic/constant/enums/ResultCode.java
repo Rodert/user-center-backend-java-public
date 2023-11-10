@@ -3,7 +3,7 @@ package cn.net.javapub.project.usercenterbackendjavapublic.constant.enums;
 public enum ResultCode {
 
     /* 成功状态码 */
-    SUCCESS(20000, "成功"),
+    SUCCESS(2000, "成功"),
     /* 参数错误 */
     PARAM_IS_INVALID(1001, "参数无效"),
     PARAM_IS_BLANK(1002, "参数为空"),

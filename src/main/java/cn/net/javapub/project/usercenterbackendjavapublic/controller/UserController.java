@@ -1,5 +1,6 @@
 package cn.net.javapub.project.usercenterbackendjavapublic.controller;
 
+import cn.net.javapub.project.usercenterbackendjavapublic.annotation.ResponseResult;
 import cn.net.javapub.project.usercenterbackendjavapublic.model.request.user.UserLoginRequest;
 import cn.net.javapub.project.usercenterbackendjavapublic.model.response.user.OutLoginResponse;
 import cn.net.javapub.project.usercenterbackendjavapublic.model.response.user.UserLoginResponse;
@@ -10,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/api")
+@ResponseResult
 public class UserController {
 
-    @PostMapping("/login/account")
+    @RequestMapping("/login/account")
     @ResponseBody
     public UserLoginResponse login(UserLoginRequest userLoginRequest) {
         System.out.println(userLoginRequest);

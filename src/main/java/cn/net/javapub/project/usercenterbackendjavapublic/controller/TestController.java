@@ -6,6 +6,7 @@ import cn.net.javapub.project.usercenterbackendjavapublic.model.common.R;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import java.util.Map;
 public class TestController {
 
     @GetMapping("/test")
-    public Map<String, Object> test() {
+    public Map<String, Object> test(HttpServletRequest request) {
         HashMap<String, Object> data = new HashMap<>();
         data.put("info", "测试成功");
         return data;

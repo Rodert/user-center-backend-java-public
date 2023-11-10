@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
+// 拦截器
 @Component
 public class ResponseResultInterceptor implements HandlerInterceptor {
     //标记名称
-    public static final String RESPONSE_RESULT_ANN = "RESPONSE-RESULT-ANN";
+    public static final String RESPONSE_RESULT_ANNOTATION = "RESPONSE-RESULT-ANNOTATION";
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -25,10 +26,10 @@ public class ResponseResultInterceptor implements HandlerInterceptor {
             final Method method = handlerMethod.getMethod();
             // 判断是否在类对象上添加了注解
             if (clazz.isAnnotationPresent(ResponseResult.class)) {
-                // 设置此请求返回体，需要包装，往下传递，在ResponseBodyAdvice接口进行判断
-                request.setAttribute(RESPONSE_RESULT_ANN, clazz.getAnnotation(ResponseResult.class));
+                // 设置此请求返回体，需要包装，往下传递，在 ResponseBodyAdvice 接口进行判断
+                request.setAttribute(RESPONSE_RESULT_ANNOTATION, clazz.getAnnotation(ResponseResult.class));
             } else if (method.isAnnotationPresent(ResponseResult.class)) {
-                request.setAttribute(RESPONSE_RESULT_ANN, method.getAnnotation(ResponseResult.class));
+                request.setAttribute(RESPONSE_RESULT_ANNOTATION, method.getAnnotation(ResponseResult.class));
             }
         }
         return true;

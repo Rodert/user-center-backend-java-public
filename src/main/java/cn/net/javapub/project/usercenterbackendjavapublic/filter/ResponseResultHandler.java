@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
 
     // 标记名称
-    public static final String RESPONSE_RESULT_ANN = "RESPONSE-RESULT-ANN";
+    public static final String RESPONSE_RESULT_ANNOTATION = "RESPONSE-RESULT-ANNOTATION";
 
 
     // 判断是否要执行 beforeBodyWrite 方法，true为执行，false不执行，有注解标记的时候处理返回值
@@ -32,7 +32,7 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = sra.getRequest();
         // 判断请求是否有包装标记
-        ResponseResult responseResultAnn = (ResponseResult) request.getAttribute(RESPONSE_RESULT_ANN);
+        ResponseResult responseResultAnn = (ResponseResult) request.getAttribute(RESPONSE_RESULT_ANNOTATION);
         return responseResultAnn == null ? false : true;
     }
 

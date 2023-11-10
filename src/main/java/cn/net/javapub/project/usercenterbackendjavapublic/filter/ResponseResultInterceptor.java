@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
 // 拦截器
 @Component
 public class ResponseResultInterceptor implements HandlerInterceptor {
+
     //标记名称
     public static final String RESPONSE_RESULT_ANNOTATION = "RESPONSE-RESULT-ANNOTATION";
 

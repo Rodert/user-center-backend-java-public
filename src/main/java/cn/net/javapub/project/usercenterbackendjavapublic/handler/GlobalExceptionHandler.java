@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * 全局异常处理类
  *
- * @author sw-code
+ * @author shiyuwang
  * @RestControllerAdvice(@ControllerAdvice)，拦截异常并统一处理
  */
 @RestControllerAdvice

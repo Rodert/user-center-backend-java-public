@@ -5,7 +5,7 @@ import cn.net.javapub.project.usercenterbackendjavapublic.constant.enums.ResultC
 /**
  * 异常结果包装类
  *
- * @author sw-code
+ * @author shiyuwang
  */
 public class ErrorResult {
 

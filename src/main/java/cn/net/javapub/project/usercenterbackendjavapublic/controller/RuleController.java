@@ -1,5 +1,6 @@
 package cn.net.javapub.project.usercenterbackendjavapublic.controller;
 
+import cn.net.javapub.project.usercenterbackendjavapublic.annotation.ResponseResult;
 import cn.net.javapub.project.usercenterbackendjavapublic.model.response.rule.RuleListResponse;
 import com.alibaba.fastjson2.JSON;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/api")
+@ResponseResult
 public class RuleController {
 
     // current=1&pageSize=20

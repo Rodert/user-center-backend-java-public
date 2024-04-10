@@ -1,0 +1,17 @@
+拉取镜像
+
+docker pull mysql/mysql-server:5.7
+
+启动容器
+
+docker run -p 3306:3306 --name mysql-container -e MYSQL_ROOT_PASSWORD=123456  -d  mysql/mysql-server:5.7
+
+
+
+### 遇到异常处理
+
+连不上数据库
+
+- https://javapub.blog.csdn.net/article/details/136513158
+
+

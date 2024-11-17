@@ -1,5 +1,7 @@
 package cn.net.javapub.usercenter.usercenterbackendjavapublic.controller;
 
+import cn.net.javapub.usercenter.usercenterbackendjavapublic.common.BaseResponse;
+import cn.net.javapub.usercenter.usercenterbackendjavapublic.common.ResultUtils;
 import cn.net.javapub.usercenter.usercenterbackendjavapublic.model.UserLoginRequest;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -15,10 +17,17 @@ public class DemoController {
     @RequestMapping("login/account")
     @ResponseBody
     public String account(UserLoginRequest req) {
+        JSONObject result = new JSONObject();
+
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("currentAuthority", "admin");
         jsonObject.put("status", "ok");
         jsonObject.put("type", "account");
-        return jsonObject.toString();
+
+        result.put("code", 200);
+        result.put("data", jsonObject);
+
+//        return jsonObject.toString();
+        return result.toString();
     }
 }

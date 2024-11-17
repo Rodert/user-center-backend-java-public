@@ -1,6 +1,4 @@
-# general-java-web
+用户中心管理系统-后端服务 Java
 
-## 介绍
 
-用户中心后端代码 Java 版本
 

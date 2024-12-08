@@ -34,8 +34,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public long userRegister(String name, String password, String checkPassword, String nickname, Integer age, String role, String planetCode) {
-        if (StringUtils.isBlank(name) || StringUtils.isBlank(password) || StringUtils.isBlank(checkPassword) ||
-                StringUtils.isBlank(nickname) || StringUtils.isBlank(role) || StringUtils.isBlank(planetCode)) {
+        if (StringUtils.isBlank(name) || StringUtils.isBlank(password) || StringUtils.isBlank(checkPassword) || StringUtils.isBlank(nickname) || StringUtils.isBlank(role) || StringUtils.isBlank(planetCode)) {
             throw new BusinessException(ErrCode.PARAM_ERROR, "参数为空");
         }
 //        if (StringUtils.isAllBlank(name, nickname, nickname, role, planetCode)) {
@@ -89,5 +88,30 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
 
         return 0;
+    }
+
+    @Override
+    public User userLogin(String name, String password) {
+        if (StringUtils.isBlank(name) || StringUtils.isBlank(password)) {
+            throw new BusinessException(ErrCode.PARAM_ERROR, "参数为空");
+        }
+
+        String digestAsHexPassword = DigestUtils.md5DigestAsHex((SALT + password).getBytes());
+
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", name).eq(StringUtils.isNotBlank(password), "password", digestAsHexPassword);
+
+        return userMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public User selectUser(Long id) {
+        if (id == null || id <= 0) {
+            throw new BusinessException(ErrCode.PARAM_ERROR);
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+
+        return userMapper.selectOne(queryWrapper);
     }
 }

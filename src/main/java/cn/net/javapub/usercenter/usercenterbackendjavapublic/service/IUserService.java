@@ -15,5 +15,7 @@ public interface IUserService extends IService<User> {
 
     long userRegister(String name, String password, String checkPassword, String nickname, Integer age, String role, String planetCode);
 
+    User userLogin(String name, String password);
 
+    User selectUser(Long id);
 }

@@ -1,8 +1,6 @@
 package cn.net.javapub.usercenter.usercenterbackendjavapublic.controller;
 
-import cn.net.javapub.usercenter.usercenterbackendjavapublic.common.BaseResponse;
-import cn.net.javapub.usercenter.usercenterbackendjavapublic.common.ResultUtils;
-import cn.net.javapub.usercenter.usercenterbackendjavapublic.model.UserLoginRequest;
+import cn.net.javapub.usercenter.usercenterbackendjavapublic.model.demo.UserLoginRequest;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
